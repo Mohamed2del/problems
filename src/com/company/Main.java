@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.solved.Problem5.Person;
-import com.company.solved.Problem5.Problem5;
-
-import java.util.ArrayList;
+import com.company.solved.Problem9;
 
 public class Main {
 
