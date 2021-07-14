@@ -47,6 +47,8 @@ public class Problem7 {
         return list;
     }
 
+
+    // freq
     public  void countFrequencies(ArrayList<String> list)
     {
 

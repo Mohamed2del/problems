@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Arrays;
+import java.util.*;
 
 /*
 Problem9
@@ -22,21 +22,45 @@ public class Problem9 {
 
         String tablename = getNameOftable(query);
         int columnsnum = getNumberofColumns(query);
+        int numberofcriteria = getnumberofcriteria(query);
+        List<String> criterialist = criteria(query);
+        HashMap<Integer,String> map= new HashMap<Integer,String>();
+        for (int i = 0; i < numberofcriteria; i++) {
+            map.put(i+1,criterialist.get(i));
+        }
 
-        System.out.println(query.substring(indexOfWhere(query) + 6).split(" "));
 
 
 
-
-
-        System.out.println(String.format("Table Name: %s \n Number of columns in select: %d \n Number of criteria: " , tablename,columnsnum ));
+        System.out.println(String.format("Table Name: %s \n Number of columns in select: %d \n Number of criteria: %d \n Criteria: " , tablename,columnsnum ,numberofcriteria ));
+        for(Map.Entry m : map.entrySet()){
+            System.out.println("  "+m.getKey()+" "+m.getValue());
+        }
     }
 
 
-    public int getnumberofcriteria (String query){
+    private int getnumberofcriteria(String query) {
 
-    return 0;
+        return criteria(query).size();
     }
+
+
+    public List<String> criteria (String query){
+        String s = query.substring(indexOfWhere(query)+6);
+        List<String> list = new ArrayList<>(Arrays.asList(s.split(" ")));
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).contains("and")) {
+                list.remove(i);
+            }
+            else if(list.get(i).contains("or")){
+                list.remove(i);
+            }
+
+        }
+        int numberofcritiera = list.size();
+        return list;
+    }
+
     public int getNumberofColumns (String query ){
         String[] tables = query.split(",");
         // Number of columns
@@ -60,7 +84,6 @@ public class Problem9 {
 
     public int indexOfWhere( String query){
         int indexofwhere = query.indexOf("where");
-        System.out.println(indexofwhere);
         return indexofwhere;
     }
 

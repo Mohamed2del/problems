@@ -6,4 +6,7 @@ public class Problem10 {
     TV tv = new TV();
     VideoGame videoGame = new VideoGame();
 
+
+
+
 }

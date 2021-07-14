@@ -10,17 +10,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        Problem5 p = new Problem5();
-        ArrayList<Person> persons = new ArrayList<>();
-        p.addObjects(persons);
-        p.ascendingSort(persons);
-
-        p.printlist(persons);
-
-        System.out.println("============================ \n");
-        ArrayList<Person> persons2 = new ArrayList<>();
-        p.addObjects(persons2);
-        p.descendingOrder(persons2);
-        p.printlist(persons2);
+      Problem9 p = new Problem9();
+      p.sql("select FIRST_NAME,MIDDLE_NAME,PHONE,AGE,ADDRESS from USER where STATUS=0 and/or AGE>21");
     }
 }
