@@ -8,7 +8,7 @@ public class VideoGame implements Machine{
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override

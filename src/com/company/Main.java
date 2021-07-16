@@ -1,11 +1,17 @@
 package com.company;
 
 
+import com.company.problem10.Machine;
+import com.company.problem10.Problem10;
 import com.company.solved.Problem4;
+
+import java.lang.constant.Constable;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 //
 //
 //        Problem10 p = new Problem10();
@@ -15,9 +21,15 @@ public class Main {
 //        Object instance = objectConstuctor.newInstance("Computer");
 //
 //        System.out.println(instance.getClass().getName());
+        String s ;
+        Problem10 p = new Problem10();
+        Object object = p.f("VideoGame");
 
-        Problem4 p = new Problem4();
-        p.problem("Integer","0111");
+        Machine machine =(Machine) object;
+        System.out.println(machine.getName());
+//        Machine machine = (Machine)object;
+//        machine.toString();
+//        System.out.println(object.getClass().getName());
 
         }
 
