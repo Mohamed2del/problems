@@ -1,15 +1,7 @@
 package com.company;
 
 
-import com.company.problem10.*;
-
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.*;
+import com.company.solved.Problem4;
 
 public class Main {
 
