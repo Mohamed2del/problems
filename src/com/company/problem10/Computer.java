@@ -1,8 +1,25 @@
 package com.company.problem10;
 
 public class Computer implements Machine {
+    String name ;
+
+
+    public Computer() {
+        this.name="Computer";
+    }
+
+
+
     @Override
     public String getName() {
-        return null;
+        return name;
+    }
+
+    public String POg(){
+        return "KOS";
+    }
+    @Override
+    public String toString() {
+        return "Computer";
     }
 }

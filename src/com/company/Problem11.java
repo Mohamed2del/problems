@@ -7,7 +7,7 @@ example if N is 10 so method will print any string 10 times in one second
 public class Problem11  extends Thread {
 
 
-    public void printAnyString()  throws InterruptedException  {
+    public void printAnyString() throws InterruptedException  {
         System.out.println("Any String");
         Thread.sleep(1000);
     }
@@ -25,6 +25,4 @@ public class Problem11  extends Thread {
             printAnyString();
         }
     }
-
-
 }

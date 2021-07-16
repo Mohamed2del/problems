@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
 Problem4
@@ -23,15 +25,47 @@ example:
  */
 public class Problem4 {
 
-    <Value> Value problem ( String type , Value value )  {
-        if(type=="Text")
-            return value;
+    private static final String regexmail = "^(.+)@(.+)$";
+    private static final String regexdate = "^(19|20)\\d\\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$";
+    private static final String regexdateTime = "^(19|20)\\d\\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])[ ]([01][0-9]|2[0123])[:]([0-5][0-9])[:]([0-5][0-9])$";
+    private static final String regexdecimal = "^[0-9]{3}\\.[0-9]{3}$";
+    private static final String regexinteger = "^[0-9]{4}$";
+
+    public String problem ( String type , String value ) {
+        if (type == "Text"){
+            System.out.println(value);
+        return value;
+    }
+        else if (type=="DateTime"){
+            Matcher matcher = match(regexdateTime,value);
+            System.out.println((matcher.matches() ? "valid" : "invalid please enter Date with this format (yyyy-MM-dd hh24:mm:ss)"));
+
+        }
         else if (type=="Date"){
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            sdf.setLenient(false);
+            Matcher matcher = match(regexdate,value);
+            System.out.println((matcher.matches() ? "valid" : "invalid please enter Date with this format (yyyy-MM-dd hh24:mm:ss)"));
+
+        }
+        else if (type=="Email"){
+            Matcher matcher = match(regexmail,value);
+            System.out.println((matcher.matches() ? "valid" : "invalid enter mail with this format -> x@x.com"));
         }
 
+        else if (type=="Decimal"){
+            Matcher matcher = match(regexdecimal,value);
+            System.out.println((matcher.matches() ? "valid" : "invalid enter mail with this format -> xxx.xxx"));
+        }
+        else if (type=="Integer"){
+            Matcher matcher = match(regexinteger,value);
+            System.out.println((matcher.matches() ? "valid" : "invalid enter mail with this format -> xxxx"));
+        }
 
         return value;
+    }
+
+    public Matcher match (String regex,String value){
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(value);
+        return matcher;
     }
 }
