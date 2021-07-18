@@ -48,6 +48,7 @@ public class Problem7 {
     }
 
 
+
     public void newsolution(String s){
             Map<Character, Integer> map = new HashMap<>();
             s.chars().forEach(e->map.put((char)e, map.getOrDefault((char)e, 0) + 1));

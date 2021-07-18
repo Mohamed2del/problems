@@ -21,29 +21,26 @@ Write a program to sort list of persons in both ascending and descending orders
 public class Problem5 {
 
 
-
     // Adding custom objects
-    public  void addObjects(ArrayList<Person> list)
-    {
-        list.add(new Person("Ahmed",22));
-        list.add(new Person("Mohamed",50));
-        list.add(new Person("Alaa",30));
-        list.add(new Person("Sofaa",25));
-        list.add(new Person("Mono",14));
+    public void addObjects(ArrayList<Person> list) {
+        list.add(new Person("Ahmed", 22));
+        list.add(new Person("Mohamed", 50));
+        list.add(new Person("Alaa", 30));
+        list.add(new Person("Sofaa", 25));
+        list.add(new Person("Mono", 14));
     }
 
-    public  void ascendingSort(ArrayList<Person> list)
-    {
+    public void ascendingSort(ArrayList<Person> list) {
 
         list.sort(comparator(list));
     }
 
-    public Comparator comparator (ArrayList<Person> list){
+    public Comparator comparator(ArrayList<Person> list) {
         Comparator<Person> comparator = (object1, object2) -> object1.getName().compareTo(object2.getName());
         return comparator;
     }
 
-    public void descendingOrder(ArrayList<Person> persons){
+    public void descendingOrder(ArrayList<Person> persons) {
 
 
         Comparator<Person> comparator = (object1, object2) -> object1.getName().compareTo(object2.getName());
@@ -52,23 +49,39 @@ public class Problem5 {
 
     }
 
-    public HashSet<Person> sortnew (){
-        ArrayList<Person> arrayList = new ArrayList<>();
-        addObjects(arrayList);
-        HashSet<Person> personsTree = new HashSet<>();
-//        pers.addAll(personsTree);
-        personsTree.addAll(arrayList);
-
-        for (Person x:personsTree) {
-            System.out.println(x.getName());
+    public Map<String, Person> arrayListtohash(ArrayList<Person>arrayList){
+        Map<String,Person> map = new HashMap<>();
+        for (Person p: arrayList) {
+            map.put(p.getName(),p);
         }
-        System.out.println("+++============++++==+++=+++");
+        return map;
 
-        TreeSet<Person> treeSet = new TreeSet<Person>();
+    }
 
+    public HashMap sortnew(Map<String, Person> map) {
+        ArrayList<Person> list = new ArrayList<>();
+        addObjects(list);
+        arrayListtohash(list);
 
+        HashMap<String, Person> temp
+                = map.entrySet()
+                .stream()
+                .sorted((i1, i2)
+                        -> i1.getKey().compareTo(
+                        i2.getKey()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1, LinkedHashMap::new));
 
-        return personsTree;
+        // Display the HashMap which is naturally sorted
+        for (Map.Entry<String, Person> entry :
+                temp.entrySet()) {
+            System.out.println("Key = " + entry.getKey()
+                    + ", Value = "
+                    + entry.getValue().getName());
+        }
+        return temp;
     }
 
     public  void addObjectstoTree(TreeSet<Person> list)
