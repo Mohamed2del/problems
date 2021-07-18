@@ -1,8 +1,7 @@
 package com.company.solved.Problem5;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 Problem5
@@ -20,6 +19,8 @@ int age;
 Write a program to sort list of persons in both ascending and descending orders
  */
 public class Problem5 {
+
+
 
     // Adding custom objects
     public  void addObjects(ArrayList<Person> list)
@@ -51,6 +52,33 @@ public class Problem5 {
 
     }
 
+    public HashSet<Person> sortnew (){
+        ArrayList<Person> arrayList = new ArrayList<>();
+        addObjects(arrayList);
+        HashSet<Person> personsTree = new HashSet<>();
+//        pers.addAll(personsTree);
+        personsTree.addAll(arrayList);
+
+        for (Person x:personsTree) {
+            System.out.println(x.getName());
+        }
+        System.out.println("+++============++++==+++=+++");
+
+        TreeSet<Person> treeSet = new TreeSet<Person>();
+
+
+
+        return personsTree;
+    }
+
+    public  void addObjectstoTree(TreeSet<Person> list)
+    {
+        list.add(new Person("Ahmed",22));
+        list.add(new Person("Mohamed",50));
+        list.add(new Person("Alaa",30));
+        list.add(new Person("Sofaa",25));
+        list.add(new Person("Mono",14));
+    }
 
     public void printlist (ArrayList<Person> persons){
         for( Person strDay : persons ){

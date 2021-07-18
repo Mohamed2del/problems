@@ -1,20 +1,16 @@
 package com.company;
 
 
-import com.company.solved.Problem11;
-import com.company.solved.Problem7;
+import com.company.solved.Problem13;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 
-        Problem7 p = new Problem7();
-
-        p.newsolution("sessxx".replaceAll(" ",""));
+        Problem13 p = new Problem13();
+        System.out.println(p.check("2s.d@x.com"));
 
     }
 
