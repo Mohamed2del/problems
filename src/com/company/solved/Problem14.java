@@ -1,4 +1,4 @@
-package com.company;
+package com.company.solved;
 
 /*
 Given three inputs, two of them are an inputs (int row, int column) for ticket reservation
@@ -42,14 +42,27 @@ public class Problem14 {
 
     }
     public boolean checkAllCond (int row , int column , int[][]grid){
+        if(checkInputs(row,column))
+            return  true;
         if(checkForInvalid(row,column,grid))
             return true;
         if(checkForReserved(row,column,grid))
             return true;
+
         return false;
     }
 
-
+    public boolean checkInputs(int row,int column){
+        if(row<0 || row > 7){
+            System.out.println("Invalid row number ( min 0 - max 7 )");
+            return true;
+        }
+        if(row<0 || row > 9){
+            System.out.println("Invalid column number ( min 0 - max 9 )");
+            return true;
+        }
+        return false;
+    }
 
     public boolean checkForInvalid (int row , int column,int[][]grid){
         if(grid[row][column]==2){

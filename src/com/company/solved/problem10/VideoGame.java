@@ -1,4 +1,4 @@
-package com.company.problem10;
+package com.company.solved.problem10;
 
 public class VideoGame implements Machine{
     String name;
