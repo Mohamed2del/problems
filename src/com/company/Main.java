@@ -12,14 +12,11 @@ public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 
-        Problem5 p = new Problem5();
-        ArrayList<Person> persons = new ArrayList<>();
-        p.addObjects(persons);
-        Map m = p.arrayListtohash(persons);
-
-        m = p.sortnew(m);
-
-
+        Problem14 p = new Problem14();
+        int[][] cinemagrid = p.getCinemagrid();
+        System.out.println(cinemagrid[5][5]);
+        p.start(5,5,cinemagrid);
+        p.start(5,5,cinemagrid);
     }
 
 
